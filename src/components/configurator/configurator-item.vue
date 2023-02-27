@@ -20,10 +20,12 @@ onMounted(() => {
 })
 
 const handleDragStart = (e) => {
-  e.dataTransfer.setData('text/plain', JSON.stringify({ item: props.question, from: 'configurator' }))
+  e.dataTransfer.setData(
+    'text/plain',
+    JSON.stringify({ item: props.question, from: 'configurator' })
+  )
   e.dataTransfer.effectAllowed = 'move'
 }
-
 </script>
 
 <style scoped>

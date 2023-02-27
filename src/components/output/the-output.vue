@@ -6,13 +6,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useFormStore } from '@/stores/form.js';
+import { computed } from 'vue'
+import { useFormStore } from '@/stores/form.js'
 
-const formStore = useFormStore();
+const formStore = useFormStore()
 
-const output = computed(() => JSON.stringify(formStore.questions));
-
+const output = computed(() => JSON.stringify(formStore.questions))
 </script>
 
 <style scoped>
@@ -23,5 +22,4 @@ const output = computed(() => JSON.stringify(formStore.questions));
   border: 1px solid purple;
   word-break: break-all;
 }
-
 </style>

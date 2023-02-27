@@ -3,42 +3,35 @@
     <h1>Configurator</h1>
 
     <div class="configurator-items">
-      <configurator-item
-        v-for="question in questions"
-        :key="question.id"
-        :question="question"
-      />
+      <configurator-item v-for="question in questions" :key="question.id" :question="question" />
     </div>
-
-
   </div>
 </template>
 
 <script setup>
-import ConfiguratorItem from './configurator-item.vue';
+import ConfiguratorItem from './configurator-item.vue'
 
+import { useFormStore } from '../../stores/form.js'
+import { computed } from 'vue'
 
-import { useFormStore } from '../../stores/form.js';
-import { computed } from 'vue';
+const formStore = useFormStore()
 
-const formStore = useFormStore();
-
-const questions = computed(() => formStore.questions);
+const questions = computed(() => formStore.questions)
 
 const handleDragEnd = (e) => {
-  const data = JSON.parse(e.dataTransfer.getData('text'));
+  const data = JSON.parse(e.dataTransfer.getData('text'))
 
   if (data.from === 'backlog') {
     // the drag started in the backlog (user added a new question)
-    formStore.addQuestion(data.item);
+    formStore.addQuestion(data.item)
   } else if (data.from === 'configurator') {
     // the drag started and ended in the configurator (user reordered questions)
-    formStore.moveQuestion(data.item);
+    formStore.moveQuestion(data.item)
   }
 }
 
 const handleDragOver = (e) => {
-  e.preventDefault();
+  e.preventDefault()
 }
 </script>
 
@@ -52,8 +45,7 @@ const handleDragOver = (e) => {
 }
 
 .configurator-items {
-  background-color: rgba(0,0,0,0.2);
-  border-radius: .5em;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
 }
-
 </style>

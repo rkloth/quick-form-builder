@@ -17,7 +17,7 @@ import Output from '../components/output/the-output.vue'
   display: flex;
   flex-direction: row;
 
-  width: 100%;
+  width: 80vw;
   height: 100%;
 
   gap: 1em;
